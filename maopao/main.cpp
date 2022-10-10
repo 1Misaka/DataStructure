@@ -6,15 +6,22 @@ void swap(int& a, int& b) {
 	a = tmp;
 }
 void maopao(int arr[], int n) {
+	bool bol;
 	for (int i = 0; i < n; ++i)
 	{
+		bol = false;
 		for (int j = n-1; j > i; --j)
 		{
 			if (arr[j] < arr[j - 1]) {
 				swap(arr[j], arr[j - 1]);
+				bol = true;
 			}
+
 		}
-		
+		if (bol == false)
+		{
+			break;
+		}
 	}
 }
 
