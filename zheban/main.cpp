@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<Windows.h>
 
 void rightmove(int arr[], int start, int end) {
 	for (int i = end; i > start; --i)
@@ -7,7 +6,6 @@ void rightmove(int arr[], int start, int end) {
 		arr[i] = arr[i - 1];
 	}
 }
-
 
 void zheban(int arr[], int n) {
 	int low, high, mid,i;
