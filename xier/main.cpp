@@ -1,12 +1,5 @@
 #include<stdio.h>
 
-void rightmove(int arr[], int start, int end,int d) {
-	for (int i = end; arr[0]<arr[i-d]&&i>start; i = i - d)
-	{
-		arr[i] = arr[i - d];
-	}
-}
-
 void xier(int arr[], int n) {
 	int d = n / 2; 
 	int i,j;
@@ -19,9 +12,7 @@ void xier(int arr[], int n) {
 				for (j = i; arr[0]<arr[j - d] && j>1; j = j - d)
 				{
 					arr[j] = arr[j - d];
-				}
-
-				
+				}	
 				arr[j] = arr[0];
 			}
 		}
@@ -29,7 +20,6 @@ void xier(int arr[], int n) {
 	}
 	arr[0] = -1;
 }
-
 
 int main() {
 	int arr[] = { -1,50,26,38,80,70,90,8,30,40,20 };
