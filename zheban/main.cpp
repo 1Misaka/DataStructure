@@ -32,7 +32,6 @@ void zheban(int arr[], int n) {
 	arr[0] = -1;
 }
 
-
 int main() {
 	int arr[] = { -1,50,26,38,80,70,90,8,30,40,20 };
 	int n = sizeof(arr) / sizeof(int);
