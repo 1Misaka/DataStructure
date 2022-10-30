@@ -6,7 +6,7 @@ void merge(int *arr, int start1, int end1, int start2, int end2) {
 	int* B;
 	int n = (end2 - start1 + 1);
 	int i, j, k;
-	B = (int*)malloc(n*sizeof(int));
+	B = (int*)malloc(n * sizeof(int));
 	for ( i = start1,j=start1,k=start2; j<=end1&& k<= end2; ++i)
 	{
 		if (arr[j] <= arr[k]) {
@@ -34,7 +34,7 @@ void merge(int *arr, int start1, int end1, int start2, int end2) {
 	{
 		arr[i] = B[i];
 	}
-	free(B);
+	//free(B);
 }
 
 void MergeSort(int arr[], int low, int high) {
@@ -47,8 +47,12 @@ void MergeSort(int arr[], int low, int high) {
 }
 
 int main(){
-	int arr[]={9,1,8,2,7,3,6,4,5};
+	int arr[]={1,3,5,7,9,2,4,6,8,10};
 	int n = sizeof(arr) / sizeof(int);
 	MergeSort(arr, 0, n - 1);
+	for (int i = 0; i < n; ++i)
+	{
+		printf("%d ", arr[i]);
+	}
 	return 0;
 }
