@@ -2,40 +2,39 @@
 #include<stdlib.h>
 
 
-void merge(int arr[], int start1, int end1, int start2, int end2) {
-	int l_arr[]={0},r_arr[]={0};
-	int n1 = end1 - start1 + 1;
-	int n2 = end2 - start2 + 1;
-	for (int i = 0; i < n1; ++i)
+void merge(int *arr, int start1, int end1, int start2, int end2) {
+	int* B;
+	int n = (end2 - start1 + 1);
+	int i, j, k;
+	B = (int*)malloc(n*sizeof(int));
+	for ( i = start1,j=start1,k=start2; j<=end1&& k<= end2; ++i)
 	{
-
-	}
-	int i = start1, j = start2, k = start1;
-	while (i <= end1 && j <= end2) 
-	{
-		if(l_arr[i]<=r_arr[j])
-		{
-			arr[k] = l_arr[i];
-			++i;
-			++k;
+		if (arr[j] <= arr[k]) {
+			B[i] = arr[j];
+			++j;
 		}
 		else
 		{
-			arr[k] = r_arr[j];
-			++j;
+			B[i] = arr[k];
 			++k;
 		}
 	}
-	while (i <= end1)
+	while (j<=end1)
 	{
-		arr[k] = l_arr[i];
+		B[i] = arr[j];
+		++i, ++j;
+	}
+	while (k <= end2)
+	{
+		B[i] = arr[k];
 		++i, ++k;
 	}
-	while (j <= end2)
+
+	for (int i = start1; i <= end2; ++i)
 	{
-		arr[k] = r_arr[j];
-		++j, ++k;
+		arr[i] = B[i];
 	}
+	free(B);
 }
 
 void MergeSort(int arr[], int low, int high) {
@@ -48,7 +47,7 @@ void MergeSort(int arr[], int low, int high) {
 }
 
 int main(){
-	int arr[]={1,9,2,8,3,7,4,6,5};
+	int arr[]={9,1,8,2,7,3,6,4,5};
 	int n = sizeof(arr) / sizeof(int);
 	MergeSort(arr, 0, n - 1);
 	return 0;
