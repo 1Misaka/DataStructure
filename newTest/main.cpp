@@ -1,20 +1,47 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-void reverse(int* arr, int start, int end) {
-	int low = start, high = end;
-	while (low<high)
-	{
-		int tmp = arr[high];
-		arr[high] = arr[low];
-		arr[low] = tmp;
-		++low, --high;
-	}
+typedef struct LNode { //define linklist
+	int data;
+	struct LNode* next;
+}LNode,*LinkList;
+
+void Init(LNode *&L) { //initial
+	L = (LNode*)malloc(sizeof(LNode));
+	L->next = NULL;
 }
-int main() {
-	int arr[] = { 1,2,3,4,5,6,7,8,9 };
-	int n = sizeof(arr) / sizeof(int);
-	reverse(arr, 0, n - 1);
-	reverse(arr, 0, 2);
-	reverse(arr, 3, n - 1);
-	return 0;
+void Insert(LinkList& L, int x) {//insert
+	LNode* p;
+	LNode* q;
+	p = L;
+	while (p->next != NULL)
+		p = p->next;
+	Init(q);
+	q->data = x;
+	p->next = q;
+}
+
+void Del(LinkList& L, LNode* p) {//common del point
+	LNode* q;
+	q = p->next;
+	p->next = q->next;
+	free(q);
+}
+
+void DelX(LinkList& L, int x) {// del a num
+	LNode* p;
+	p = L;
+	while (p->next !=NULL)
+	{
+		LNode* q;
+		q = p->next;
+		if (q->data == x)
+		{
+			Del(L,p);
+		}
+		else
+		{
+			p = p->next;
+		}
+	}
 }

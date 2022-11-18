@@ -47,7 +47,7 @@ void MergeSort(int arr[], int low, int high) {
 }
 
 int main(){
-	int arr[]={1,3,5,7,9,2,4,6,8,10};
+	int arr[]={1,9,2,8,3,7,4,6,5};
 	int n = sizeof(arr) / sizeof(int);
 	MergeSort(arr, 0, n - 1);
 	return 0;
