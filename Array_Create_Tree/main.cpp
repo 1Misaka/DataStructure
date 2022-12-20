@@ -49,6 +49,12 @@ int main() {
 	Create(T, ch, i);
 
 	degree(T, 0, S);
-	
+	int x = 0, sum=0;
+	while (S.top>-1)
+	{
+		Pop(S, x);
+		sum = sum + x;
+	}
+	printf("%d", sum);
 	return 0;
 }
