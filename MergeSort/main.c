@@ -14,6 +14,7 @@ void merge(int* arr, int start1, int end1, int start2, int end2) {
 	while (i <= end1) { B[k] = arr[i]; ++i, ++k; }
 	while (j <= end2) { B[k] = arr[j]; ++j, ++k; }
 	for (int i = start1, j = 0; i <= end2; ++i, ++j) { arr[i] = B[j]; }
+	free(B);
 }
 
 void MergeSort(int* arr, int low, int high) {
